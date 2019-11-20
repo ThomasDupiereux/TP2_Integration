@@ -39,13 +39,9 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $this->gumballMachineInstance = new GumballMachine();
     }
     
-    public static function setUpBeforeClass()
-    {
-        $this->gumballMachineInstance->DropDatas();
-    }
-    
     public function testAffichageProfAVI()
     {
+        $this->gumballMachineInstance->DropDatas();
         $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("Before Insertion of Professors"));
     }
     public function testInsertP()
