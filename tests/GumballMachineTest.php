@@ -153,7 +153,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $idToDelete = $this->gumballMachineInstance->getIdP("XXX1", "YYY1");
         $this->assertEquals(true,$this->gumballMachineInstance->DeleteP($idToDelete));
         $total2 = $this->gumballMachineInstance->countTableP();
-        $this->assertEquals($total1, $total2-1);
+        $this->assertEquals($total1, $total2+1);
     }
     
     public function testAffichageProfAPD()
@@ -173,7 +173,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $idToDelete = $this->gumballMachineInstance->getIdC("MECAFLOTTE", "150");
         $this->assertEquals(true,$this->gumballMachineInstance->DeleteC($idToDelete));
         $total2 = $this->gumballMachineInstance->countTableC();
-        $this->assertEquals($total1, $total2-1);
+        $this->assertEquals($total1, $total2+1);
     }
     
     public function testAffichageCoursAPD()
