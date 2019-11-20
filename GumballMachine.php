@@ -231,4 +231,12 @@ class GumballMachine
 		    return false;
 		}
 	}
+	
+	public function countTable($table)
+	{
+	    $stmt = $this->bdd->prepare("SELECT COUNT(*) as total FROM ?");
+	    $stmt->execute([$table]);
+	    $user = $stmt->fetch();
+	    return $user['total'];
+	}
 }
