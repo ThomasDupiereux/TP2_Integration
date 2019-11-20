@@ -39,6 +39,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $this->gumballMachineInstance = new GumballMachine();
     }
     
+    //----------------------------Insert-------------------------------
     public function testAffichageProfAVI()
     {
         $this->gumballMachineInstance->DropDatas();
@@ -95,6 +96,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Insertion of Courses"));
     }
     
+    //--------------------------------Update-----------------------------------
     public function testAffichageProfAVU()
     {
          $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("Before Update of Professors"));
@@ -125,11 +127,11 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     public function testUpdateC()
     {
         $idToUpdate = $this->gumballMachineInstance->getIdC("EDL", "30");
-        $this->assertEquals(true,$this->gumballMachineInstance->UpdateC($idToUpdate, "MECAFLOTTE", "150", $this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2)));
+        $this->assertEquals(true,$this->gumballMachineInstance->UpdateC($idToUpdate, "MECAFLOTTE", "150", $this->gumballMachineInstance->getIdP($this->nom1,$this->prenom1)));
         $datasC = $this->gumballMachineInstance->GetDatasC($idToUpdate);
         $this->assertEquals("MECAFLOTTE",$datasC[0]);
         $this->assertEquals("150",$datasC[1]);
-        $this->assertEquals($this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2),$datasC[2]);
+        $this->assertEquals($this->gumballMachineInstance->getIdP($this->nom1,$this->prenom1),$datasC[2]);
         
     }
     
@@ -137,6 +139,47 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Update of Courses"));
     }
+    
+    //--------------------Delete---------------------------------
+    public function testAffichageProfAVD()
+    {
+         $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("Before Delete of Professors"));
+    }
+    
+    public function testDeleteP()
+    {
+        $total1 = $this->gumballMachineInstance->countTable("prof");
+        $idToDelete = $this->gumballMachineInstance->getIdP("AAA1", "BBB1");
+        $this->assertEquals(true,$this->gumballMachineInstance->DeleteP($idToDelete));
+        $total2 = $this->gumballMachineInstance->countTable("prof");
+        $this->assertEquals($total1, $total2-1);
+    }
+    
+    public function testAffichageProfAPD()
+    {
+        $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("After Delete of Professors"));
+    }
+    
+    public function testAffichageCoursAVD()
+    {
+         $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("Before Delete of Courses"));
+    }
+    
+    public function testDeleteC()
+    {
+        $total1 = $this->gumballMachineInstance->countTable("cours");
+        $idToDelete = $this->gumballMachineInstance->getIdC("IA", "12");
+        $this->assertEquals(true,$this->gumballMachineInstance->DeleteC($idToDelete));
+        $total2 = $this->gumballMachineInstance->countTable("cours");
+        $this->assertEquals($total1, $total2-1);
+    }
+    
+    public function testAffichageCoursAPD()
+    {
+        $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Delete of Courses"));
+    }
+    
+    
 
    
 }
