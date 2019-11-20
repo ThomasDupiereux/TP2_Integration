@@ -126,12 +126,12 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     
     public function testUpdateC()
     {
-        $idToUpdate = $this->gumballMachineInstance->getIdC("EDL", "30");
-        $this->assertEquals(true,$this->gumballMachineInstance->UpdateC($idToUpdate, "MECAFLOTTE", "150", $this->gumballMachineInstance->getIdP($this->nom1,$this->prenom1)));
+        $idToUpdate = $this->gumballMachineInstance->getIdC("IA", "12");
+        $this->assertEquals(true,$this->gumballMachineInstance->UpdateC($idToUpdate, "MECAFLOTTE", "150", $this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2)));
         $datasC = $this->gumballMachineInstance->GetDatasC($idToUpdate);
         $this->assertEquals("MECAFLOTTE",$datasC[0]);
         $this->assertEquals("150",$datasC[1]);
-        $this->assertEquals($this->gumballMachineInstance->getIdP($this->nom1,$this->prenom1),$datasC[2]);
+        $this->assertEquals($this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2),$datasC[2]);
         
     }
     
@@ -150,7 +150,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     {
         $table = "prof";
         $total1 = $this->gumballMachineInstance->countTableP();
-        $idToDelete = $this->gumballMachineInstance->getIdP("AAA1", "BBB1");
+        $idToDelete = $this->gumballMachineInstance->getIdP("XXX1", "YYY1");
         $this->assertEquals(true,$this->gumballMachineInstance->DeleteP($idToDelete));
         $total2 = $this->gumballMachineInstance->countTableP();
         $this->assertEquals($total1, $total2-1);
@@ -170,7 +170,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     {
         $table = "cours";
         $total1 = $this->gumballMachineInstance->countTableC();
-        $idToDelete = $this->gumballMachineInstance->getIdC("IA", "12");
+        $idToDelete = $this->gumballMachineInstance->getIdC("MECAFLOTTE", "150");
         $this->assertEquals(true,$this->gumballMachineInstance->DeleteC($idToDelete));
         $total2 = $this->gumballMachineInstance->countTableC();
         $this->assertEquals($total1, $total2-1);
