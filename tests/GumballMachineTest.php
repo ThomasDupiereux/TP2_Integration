@@ -6,13 +6,32 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
 {
     public $gumballMachineInstance;
     //prof
-    private $nom="x_test_tp"; // a changer
-    private $prenom="y_test_tp"; // a changer
-    private $date_naissance="0000-00-00"; // a changer
-    private $lieu_naissance="XY"; // a changer
+    private $nom1="XXX1";
+    private $prenom1="YYY1";
+    private $date_naissance1="29-09-1980";
+    private $lieu_naissance1="ZZZ1";
+    
+    private $nom2="XXX2";
+    private $prenom2="YYY2";
+    private $date_naissance2="30-10-1981";
+    private $lieu_naissance2="ZZZ2";
+    
+    private $nom3="XXX3";
+    private $prenom3="YYY3";
+    private $date_naissance3="31-12-1982";
+    private $lieu_naissance3="ZZZ3";
     // cours
-    private $intitule="***"; //a remplir
-    private $duree="***";    //a remplir
+    private $intitule1="IOT";
+    private $duree1="10";
+    
+    private $intitule2="IA";
+    private $duree2="12";
+    
+    private $intitule3="C++";
+    private $duree3="18";
+    
+    private $intitule4="EDL";
+    private $duree4="30";
     
         
     public function setUp()
@@ -27,29 +46,31 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     public function testInsertP()
     {
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
-        $this->assertEquals(true,$this->gumballMachineInstance->InsertP($this->gumballMachineInstance->getDB(),$this->nom,$this->prenom,$this->date_naissance,$this->lieu_naissance));
+        echo $max__id1
+        $this->assertEquals(true,$this->gumballMachineInstance->InsertP($this->gumballMachineInstance->getDB(),$this->nom1,$this->prenom1,$this->date_naissance1,$this->lieu_naissance1));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
+        
     }
     public function testAffichageProfAPI()
     {
-        /*à completer*/
+        /*Ã  completer*/
     }
      
     
     public function testAffichageCoursAVI()
     {
-        /*à completer*/
+        /*Ã  completer*/
     }
     public function testInsertC()
     {
        
-        /*à completer*/
+        /*Ã  completer*/
         
     }
     public function testAffichageCoursAPI()
     {
-        /*à completer*/
+        /*Ã  completer*/
     }
 
    
