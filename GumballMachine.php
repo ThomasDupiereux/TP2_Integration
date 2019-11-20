@@ -234,7 +234,7 @@ class GumballMachine
 	
 	public function countTable($table)
 	{
-	    $stmt = $this->bdd->prepare("SELECT COUNT(id) as total FROM ?");
+	    $stmt = $this->bdd->prepare("SELECT COUNT(id) as total FROM ?;");
 	    $stmt->execute([$table]);
 	    $user = $stmt->fetch();
 	    return $user['total'];
