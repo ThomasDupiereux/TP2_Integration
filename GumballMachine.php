@@ -232,10 +232,18 @@ class GumballMachine
 		}
 	}
 	
-	public function countTable($table)
+	public function countTableP()
 	{
-	    $stmt = $this->bdd->prepare("SELECT COUNT(id) as total FROM ?;");
-	    $stmt->execute([$table]);
+	    $stmt = $this->bdd->prepare("SELECT COUNT(id) as total FROM prof;");
+	    $stmt->execute();
+	    $user = $stmt->fetch();
+	    return $user['total'];
+	}
+	
+	public function countTableC()
+	{
+	    $stmt = $this->bdd->prepare("SELECT COUNT(id) as total FROM cours;");
+	    $stmt->execute();
 	    $user = $stmt->fetch();
 	    return $user['total'];
 	}
