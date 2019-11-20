@@ -129,7 +129,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $datasC = $this->gumballMachineInstance->GetDatasC($idToUpdate);
         $this->assertEquals("MECAFLOTTE",$datasC[0]);
         $this->assertEquals("150",$datasC[1]);
-        $this->assertEquals($this->gumballMachineInstance->getIdP($this->nom3,$this->prenom3),$datasC[2]);
+        $this->assertEquals($this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2),$datasC[2]);
         
     }
     
