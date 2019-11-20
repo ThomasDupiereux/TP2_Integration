@@ -148,10 +148,11 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     
     public function testDeleteP()
     {
-        $total1 = $this->gumballMachineInstance->countTable("prof");
+        $table = "prof";
+        $total1 = $this->gumballMachineInstance->countTable($table);
         $idToDelete = $this->gumballMachineInstance->getIdP("AAA1", "BBB1");
         $this->assertEquals(true,$this->gumballMachineInstance->DeleteP($idToDelete));
-        $total2 = $this->gumballMachineInstance->countTable("prof");
+        $total2 = $this->gumballMachineInstance->countTable($table);
         $this->assertEquals($total1, $total2-1);
     }
     
@@ -167,10 +168,11 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     
     public function testDeleteC()
     {
-        $total1 = $this->gumballMachineInstance->countTable("cours");
+        $table = "cours";
+        $total1 = $this->gumballMachineInstance->countTable($table);
         $idToDelete = $this->gumballMachineInstance->getIdC("IA", "12");
         $this->assertEquals(true,$this->gumballMachineInstance->DeleteC($idToDelete));
-        $total2 = $this->gumballMachineInstance->countTable("cours");
+        $total2 = $this->gumballMachineInstance->countTable($table);
         $this->assertEquals($total1, $total2-1);
     }
     
