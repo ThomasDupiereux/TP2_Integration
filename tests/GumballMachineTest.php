@@ -36,7 +36,9 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         
     public function setUp()
     {
+        echo "setUp";
         $this->gumballMachineInstance = new GumballMachine();
+        $this->gumballMachineInstance->DropDatas();
     }
     
     public function testAffichageProfAVI()
@@ -94,9 +96,28 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Insertion of Courses"));
     }
     
-    public function testDropDatas()
+    public function testAffichageProfAVU()
     {
-        $this->assertEquals(true,$this->gumballMachineInstance->DropDatas());
+         $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("Before Update of Professors"));
+    }
+    
+    public function testUpdateP()
+    {
+        /*
+        $idToUpdate = $this->gumballMachineInstance->getIdP("XXX1", "YYY1");
+        $this->assertEquals(true,$this->gumballMachineInstance->UpdateP($idToUpdate, "AAA1", "BBB1", "2018-04-23", "CCC1"));
+        $datasP = $this->gumballMachineInstance->GetDatasP($idToUpdate);
+        $this->assertEquals("AAA1",$datasP[0]);
+        $this->assertEquals("BBB1",$datasP[0]);
+        $this->assertEquals("AAA1",$datasP[0]);
+        $this->assertEquals("AAA1",$datasP[0]);
+        */
+        
+    }
+    
+    public function testAffichageProfAPU()
+    {
+        $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("After Update of Professors"));
     }
 
    
