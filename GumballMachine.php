@@ -122,11 +122,11 @@ class GumballMachine
 	{
 		try 
 		{
-		   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		   $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		   $sql = "DELETE FROM cours";
-		   $bdd->exec($sql);
+		   $this->bdd->exec($sql);
 		   $sql = "DELETE FROM prof";
-		   $bdd->exec($sql);
+		   $this->bdd->exec($sql);
 		   return true;
 		}
 		catch(PDOException $e)
