@@ -36,9 +36,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         
     public function setUp()
     {
-        echo "setUp";
         $this->gumballMachineInstance = new GumballMachine();
-        $this->gumballMachineInstance->DropDatas();
     }
     
     public function testAffichageProfAVI()
@@ -118,6 +116,11 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     public function testAffichageProfAPU()
     {
         $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("After Update of Professors"));
+    }
+    
+    public function testDropDatas()
+    {
+        $this-assertEquals(true, $this->gumballMachineInstance->DropDatas());
     }
 
    
