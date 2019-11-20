@@ -116,14 +116,36 @@ class GumballMachine
 	    
 	}
 	
-	public function UpdateP()
+	public function UpdateP($id, $nom, $prenom, $date, $lieu)
 	{
-	    
+	    try
+	    {
+		$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "UPDATE prof SET nom = '$nom', prenom = '$prenom', date_naissance = '$date', lieu_naissance = '$lieu' WHERE id = '$id'";
+		$this->bdd->exec($sql);
+		return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+		return false;
+	    }
 	}
 	
-	public function DeleteP()
+	public function DeleteP($id)
 	{
-	    
+	    try
+	    {
+		$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "DELETE FROM prof WHERE id = '$id'";
+		$this->bdd->exec($sql);
+		return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+		return false;
+	    }
 	}
 	
 	public function DropDatas()
